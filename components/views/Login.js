@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Header, Content, Form, Item, Input,Card,CardItem,Body,Text, Title,Row,Col,Button,} from 'native-base';
+import { KeyboardAvoidingView } from 'react-native';
 
 export class Login extends React.Component{
   static navigationOptions = {
@@ -7,6 +8,7 @@ export class Login extends React.Component{
 }
     render(){
         return(
+          <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
             <Container>
             <Header />
             <Content contentContainerStyle={{justifyContent:"center",flex:1}} padder>
@@ -44,6 +46,7 @@ export class Login extends React.Component{
               </Card>
             </Content>
             </Container>
+            </KeyboardAvoidingView>
          
             
         );
