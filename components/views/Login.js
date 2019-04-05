@@ -2,6 +2,9 @@ import React from 'react';
 import { Container, Header, Content, Form, Item, Input,Card,CardItem,Body,Text, Title,Row,Col,Button,} from 'native-base';
 
 export class Login extends React.Component{
+  static navigationOptions = {
+    header: null
+}
     render(){
         return(
             <Container>
@@ -18,7 +21,7 @@ export class Login extends React.Component{
                 <CardItem bordered>
                 <Body style={{flexDirection:"column",justifyContent:"center"}}>
                 <Item rounded>
-                  <Input placeholder='Username'/>
+                  <Input placeholder='Email'/>
                 </Item>
                 <Item style={{marginTop:10}} rounded>
                   <Input placeholder='Password'/>
@@ -31,7 +34,7 @@ export class Login extends React.Component{
                 </Button>
                 </Item>
                 
-                  <Button style={{alignSelf:"center"}} transparent primary>
+                  <Button style={{alignSelf:"center"}} transparent primary onPress={()=> this.props.navigation.navigate('Signup')}>
                   <Text>
                     Don't have An Account? Sign Up HERE
                   </Text>
@@ -40,7 +43,8 @@ export class Login extends React.Component{
                 </CardItem>
               </Card>
             </Content>
-          </Container>
+            </Container>
+         
             
         );
     }
