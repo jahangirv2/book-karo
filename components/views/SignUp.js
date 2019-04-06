@@ -14,9 +14,10 @@ import {
   Row,
   Col,
   Button,
-  Icon
+  Icon,
+  Right
 } from "native-base";
-import { KeyboardAvoidingView, ToastAndroid } from "react-native";
+import { KeyboardAvoidingView, ToastAndroid,Image } from "react-native";
 import firebase from '../firebase';
 
 // import * as firebase from "firebase";
@@ -74,13 +75,26 @@ export class SignUp extends React.Component {
     return (
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
         <Container>
-          <Header style={{backgroundColor:"#5ace6a"}} />
+          {/* <Header style={{backgroundColor:"#dd3737"}} transparent>
+          <Right>
+          <Body>
+            <Title style={{color:"white"}}>
+              Sign Up
+            </Title>
+          </Body>
+          </Right>
+          </Header> */}
           <Content
-            contentContainerStyle={{ justifyContent: "center", flex: 1 }}
+            contentContainerStyle={{ justifyContent: "center", flex: 1,}}
             padder
           >
+         
+          <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center"}} />
+          <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center"}}>
+            Book KARO!
+          </Text>
             <Card>
-              <CardItem style={{backgroundColor:"#5ace6a"}} bordered>
+              {/* <CardItem style={{backgroundColor:"#dd3737"}} bordered>
                 <Body style={{}}>
                   <Text
                     style={{
@@ -93,7 +107,7 @@ export class SignUp extends React.Component {
                     SignUp
                   </Text>
                 </Body>
-              </CardItem>
+              </CardItem> */}
               <CardItem bordered>
                 <Body
                   style={{ flexDirection: "column", justifyContent: "center" }}
@@ -125,7 +139,7 @@ export class SignUp extends React.Component {
                     <Button iconRight
                       block
                       rounded
-                      style={{ width: 150,backgroundColor:"#5ace6a" }}
+                      style={{ width: 150,backgroundColor:"#dd3737" }}
                       onPress={() =>
                         this.signUpUser(this.state.email, this.state.password)
                       }
