@@ -15,7 +15,7 @@ import {
   Col,
   Button
 } from "native-base";
-import { KeyboardAvoidingView } from "react-native";
+import { KeyboardAvoidingView, ToastAndroid } from "react-native";
 
 import * as firebase from "firebase";
 
@@ -47,16 +47,20 @@ export class SignUp extends React.Component {
     });
   }
   signUpUser = (email, password) => {
-    try {
+    
       if (this.state.password.length < 6) {
         alert("Please enter atleast 6 characters");
         return;
       }
-      firebase.auth().createUserWithEmailAndPassword(email, password);
-      this.props.navigation.navigate("HomeScreen");
-    } catch (error) {
-      console.log(error.toString());
-    }
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(() => this.props.navigation.navigate('LoginScreen'))
+      .catch(error => alert(error));
+      ToastAndroid.show('Sign Up Successfull', ToastAndroid.SHORT);
+    //   this.props.navigation.navigate("LoginScreen");
+
+    // } catch (error) {
+    //   console.log(error.toString());
+    // }
   };
   loginUser = (email, password) => {};
 
@@ -124,7 +128,7 @@ export class SignUp extends React.Component {
                     </Button>
                   </Item>
 
-                  <Item style={{ marginTop: 10, alignSelf: "center" }} rounded>
+                  {/* <Item style={{ marginTop: 10, alignSelf: "center" }} rounded>
                     <Button
                       transparent
                       block
@@ -135,7 +139,7 @@ export class SignUp extends React.Component {
                     >
                       <Text style={styles.signinButton}>Login</Text>
                     </Button>
-                  </Item>
+                  </Item> */}
                 </Body>
               </CardItem>
             </Card>
