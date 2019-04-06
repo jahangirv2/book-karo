@@ -16,18 +16,19 @@ import {
   Button
 } from "native-base";
 import { KeyboardAvoidingView, ToastAndroid } from "react-native";
+import firebase from '../firebase';
 
-import * as firebase from "firebase";
+// import * as firebase from "firebase";
 
-var config = {
-  apiKey: "AIzaSyDirLDizuGOmlVC1seCmaMPAbjdrUeTZqM",
-  authDomain: "book-karo-50af3.firebaseapp.com",
-  databaseURL: "https://book-karo-50af3.firebaseio.com",
-  projectId: "book-karo-50af3",
-  storageBucket: "book-karo-50af3.appspot.com",
-  messagingSenderId: "264387576029"
-};
-firebase.initializeApp(config);
+// var config = {
+//   apiKey: "AIzaSyDirLDizuGOmlVC1seCmaMPAbjdrUeTZqM",
+//   authDomain: "book-karo-50af3.firebaseapp.com",
+//   databaseURL: "https://book-karo-50af3.firebaseio.com",
+//   projectId: "book-karo-50af3",
+//   storageBucket: "book-karo-50af3.appspot.com",
+//   messagingSenderId: "264387576029"
+// };
+// firebase.initializeApp(config);
 
 export class SignUp extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ export class SignUp extends React.Component {
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(() => this.props.navigation.navigate('LoginScreen'))
       .catch(error => alert(error));
-      ToastAndroid.show('Sign Up Successfull', ToastAndroid.SHORT);
+    //   ToastAndroid.show('Sign Up Successfull', ToastAndroid.SHORT);
     //   this.props.navigation.navigate("LoginScreen");
 
     // } catch (error) {

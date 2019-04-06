@@ -8,3 +8,6 @@ var config = {
   storageBucket: "book-karo-50af3.appspot.com",
   messagingSenderId: "264387576029"
 };
+firebase.initializeApp(config);
+
+export default firebase;
