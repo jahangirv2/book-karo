@@ -13,7 +13,8 @@ import {
   Title,
   Row,
   Col,
-  Button
+  Button,
+  Icon
 } from "native-base";
 import { KeyboardAvoidingView, ToastAndroid } from "react-native";
 import firebase from '../firebase';
@@ -79,13 +80,14 @@ export class SignUp extends React.Component {
             padder
           >
             <Card>
-              <CardItem bordered>
+              <CardItem style={{backgroundColor:"#3F51B5"}} bordered>
                 <Body style={{}}>
                   <Text
                     style={{
                       fontSize: 24,
                       fontWeight: "bold",
-                      alignSelf: "center"
+                      alignSelf: "center",
+                      color:"white"
                     }}
                   >
                     SignUp
@@ -97,12 +99,14 @@ export class SignUp extends React.Component {
                   style={{ flexDirection: "column", justifyContent: "center" }}
                 >
                   <Item rounded>
+                  <Icon name="person"/>
                     <Input
                       placeholder="Full Name"
                       onChangeText={name => this.setState({ name })}
                     />
                   </Item>
                   <Item style={{ marginTop: 10 }} rounded>
+                  <Icon name="mail"/>
                     <Input
                       placeholder="Email"
                       onChangeText={email => this.setState({ email })}
@@ -110,6 +114,7 @@ export class SignUp extends React.Component {
                   </Item>
 
                   <Item style={{ marginTop: 10 }} rounded>
+                  <Icon name="lock"/>
                     <Input
                       secureTextEntry={true}
                       placeholder="Password"
@@ -117,7 +122,7 @@ export class SignUp extends React.Component {
                     />
                   </Item>
                   <Item style={{ marginTop: 10, alignSelf: "center" }} rounded>
-                    <Button
+                    <Button iconRight
                       block
                       rounded
                       style={{ width: 150 }}
@@ -125,7 +130,10 @@ export class SignUp extends React.Component {
                         this.signUpUser(this.state.email, this.state.password)
                       }
                     >
+                    
+                    
                       <Text>Sign Up!</Text>
+                      <Icon name="checkmark-circle"/>
                     </Button>
                   </Item>
 
