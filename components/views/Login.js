@@ -40,10 +40,10 @@ export class Login extends React.Component{
         return(
           <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
             <Container>
-            <Header />
-            <Content contentContainerStyle={{justifyContent:"center",flex:1}} padder>
+            <Header style={{backgroundColor:"#5ace6a"}} />
+            <Content contentContainerStyle={{justifyContent:"center",flex:1,backgroundColor:"#ededed"}} padder>
               <Card>
-                <CardItem style={{backgroundColor:"#3F51B5"}} bordered>
+                <CardItem style={{backgroundColor:"#5ace6a"}} bordered>
                   <Body style={{}}>
                     <Text style={{color:"white",fontSize:24,fontWeight:'bold',alignSelf:"center",}}>
                       Login
@@ -65,7 +65,7 @@ export class Login extends React.Component{
                   />
                 </Item>
                 <Item style={{marginTop:10,alignSelf:"center"}} rounded>
-                <Button iconRight block rounded style={{width:150}}
+                <Button iconRight block rounded style={{width:150,backgroundColor:"#5ace6a"}}
                 onPress={() =>
                   this.loginUser(this.state.email, this.state.password)
                 }
@@ -77,7 +77,7 @@ export class Login extends React.Component{
                 </Button>
                 </Item>
                 
-                  <Button style={{alignSelf:"center"}} transparent primary onPress={()=> this.props.navigation.navigate('Signup')}>
+                  <Button style={{alignSelf:"center",}} transparent primary onPress={()=> this.props.navigation.navigate('Signup')}>
                   <Text>
                     Don't have An Account? Sign Up HERE
                   </Text>

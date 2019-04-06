@@ -74,13 +74,13 @@ export class SignUp extends React.Component {
     return (
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
         <Container>
-          <Header />
+          <Header style={{backgroundColor:"#5ace6a"}} />
           <Content
             contentContainerStyle={{ justifyContent: "center", flex: 1 }}
             padder
           >
             <Card>
-              <CardItem style={{backgroundColor:"#3F51B5"}} bordered>
+              <CardItem style={{backgroundColor:"#5ace6a"}} bordered>
                 <Body style={{}}>
                   <Text
                     style={{
@@ -125,7 +125,7 @@ export class SignUp extends React.Component {
                     <Button iconRight
                       block
                       rounded
-                      style={{ width: 150 }}
+                      style={{ width: 150,backgroundColor:"#5ace6a" }}
                       onPress={() =>
                         this.signUpUser(this.state.email, this.state.password)
                       }
