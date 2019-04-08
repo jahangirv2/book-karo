@@ -17,7 +17,7 @@ import {
   Icon,
   Right
 } from "native-base";
-import { KeyboardAvoidingView, ToastAndroid,Image } from "react-native";
+import { KeyboardAvoidingView, ToastAndroid,Image,ImageBackground } from "react-native";
 import firebase from '../firebase';
 
 // import * as firebase from "firebase";
@@ -73,6 +73,7 @@ export class SignUp extends React.Component {
 
   render() {
     return (
+
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
         <Container>
           {/* <Header style={{backgroundColor:"#dd3737"}} transparent>
@@ -84,16 +85,24 @@ export class SignUp extends React.Component {
           </Body>
           </Right>
           </Header> */}
+
+      <ImageBackground 
+                 source={require('../../citylight.jpg')}
+                 style={{width:"100%",height:"100%",margin:0}}
+                 imageStyle={{resizeMode:"stretch"}}
+                 >
           <Content
             contentContainerStyle={{ justifyContent: "center", flex: 1,}}
             padder
           >
+
+          {/* <Image source={require('../../city.jpg') } style={{}} /> */}
          
           <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center"}} />
-          <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center"}}>
+          <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginVertical:15}}>
             Book KARO!
           </Text>
-            <Card>
+            {/* <Card style={{backgroundColor:"transparent",}}> */}
               {/* <CardItem style={{backgroundColor:"#dd3737"}} bordered>
                 <Body style={{}}>
                   <Text
@@ -108,7 +117,7 @@ export class SignUp extends React.Component {
                   </Text>
                 </Body>
               </CardItem> */}
-              <CardItem bordered>
+              <CardItem bordered > 
                 <Body
                   style={{ flexDirection: "column", justifyContent: "center" }}
                 >
@@ -135,7 +144,7 @@ export class SignUp extends React.Component {
                       onChangeText={password => this.setState({ password })}
                     />
                   </Item>
-                  <Item style={{ marginTop: 10, alignSelf: "center" }} rounded>
+                  <Item style={{ marginTop: 10, alignSelf: "center"  }} rounded>
                     <Button iconRight
                       block
                       rounded
@@ -146,8 +155,8 @@ export class SignUp extends React.Component {
                     >
                     
                     
-                      <Text>Sign Up!</Text>
-                      <Icon name="checkmark-circle"/>
+                      <Text>Sign Up</Text>
+                      {/* <Icon name="checkmark-circle"/> */}
                     </Button>
                   </Item>
 
@@ -165,10 +174,13 @@ export class SignUp extends React.Component {
                   </Item> */}
                 </Body>
               </CardItem>
-            </Card>
+            {/* </Card> */}
+            
           </Content>
+          </ImageBackground>
         </Container>
       </KeyboardAvoidingView>
+      
     );
   }
 }
