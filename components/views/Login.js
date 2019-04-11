@@ -50,14 +50,14 @@ export class Login extends React.Component{
             </Right>
             </Header> */}
             <ImageBackground 
-                 source={require('../../citylight.jpg')}
+                 source={require('../../tableblur.jpg')}
                  style={{width:"100%",height:"100%",margin:0}}
-                 imageStyle={{resizeMode:"stretch"}}
+                 imageStyle={{resizeMode:"cover"}}
                  >
             <Content contentContainerStyle={{justifyContent:"center",flex:1,}} padder>
           <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center",}} />
         
-                <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",}}>Book KARO!</Text>
+                <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginBottom:60}}>Book KARO!</Text>
                 
           
               {/* <Card> */}

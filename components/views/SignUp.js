@@ -74,7 +74,7 @@ export class SignUp extends React.Component {
   render() {
     return (
 
-      <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+      <KeyboardAvoidingView behavior="padding"  style={{flex:1,}}>
         <Container>
           {/* <Header style={{backgroundColor:"#dd3737"}} transparent>
           <Right>
@@ -87,9 +87,9 @@ export class SignUp extends React.Component {
           </Header> */}
 
       <ImageBackground 
-                 source={require('../../citylight.jpg')}
+                 source={require('../../tableblur.jpg')}
                  style={{width:"100%",height:"100%",margin:0}}
-                 imageStyle={{resizeMode:"stretch"}}
+                 imageStyle={{resizeMode:"cover"}}
                  >
           <Content
             contentContainerStyle={{ justifyContent: "center", flex: 1,}}
@@ -99,7 +99,7 @@ export class SignUp extends React.Component {
           {/* <Image source={require('../../city.jpg') } style={{}} /> */}
          
           <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center"}} />
-          <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginVertical:15}}>
+          <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginBottom:60}}>
             Book KARO!
           </Text>
             {/* <Card style={{backgroundColor:"transparent",}}> */}
@@ -117,28 +117,28 @@ export class SignUp extends React.Component {
                   </Text>
                 </Body>
               </CardItem> */}
-              <CardItem bordered > 
+              {/* <CardItem bordered >  */}
                 <Body
                   style={{ flexDirection: "column", justifyContent: "center" }}
                 >
                   <Item rounded>
-                  <Icon name="person"/>
-                    <Input
+                  <Icon name="person" style={{color:"white"}}/>
+                    <Input placeholderTextColor="white" style={{color:"white"}}
                       placeholder="Full Name"
                       onChangeText={name => this.setState({ name })}
                     />
                   </Item>
                   <Item style={{ marginTop: 10 }} rounded>
-                  <Icon name="mail"/>
-                    <Input
+                  <Icon name="mail" style={{color:'white'}}/>
+                    <Input placeholderTextColor="white" style={{color:"white"}}
                       placeholder="Email"
                       onChangeText={email => this.setState({ email })}
                     />
                   </Item>
 
                   <Item style={{ marginTop: 10 }} rounded>
-                  <Icon name="lock"/>
-                    <Input
+                  <Icon style={{color:"white"}} name="lock"/>
+                    <Input placeholderTextColor="white" style={{color:"white"}}
                       secureTextEntry={true}
                       placeholder="Password"
                       onChangeText={password => this.setState({ password })}
@@ -156,7 +156,7 @@ export class SignUp extends React.Component {
                     
                     
                       <Text>Sign Up</Text>
-                      {/* <Icon name="checkmark-circle"/> */}
+                      <Icon name="checkmark-circle"/>
                     </Button>
                   </Item>
 
@@ -173,7 +173,7 @@ export class SignUp extends React.Component {
                     </Button>
                   </Item> */}
                 </Body>
-              </CardItem>
+              {/* </CardItem> */}
             {/* </Card> */}
             
           </Content>
