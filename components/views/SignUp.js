@@ -87,7 +87,7 @@ export class SignUp extends React.Component {
           </Header> */}
 
       <ImageBackground 
-                 source={require('../../tableblur.jpg')}
+                 source={require('../../tablefinal.jpg')}
                  style={{width:"100%",height:"100%",margin:0}}
                  imageStyle={{resizeMode:"cover"}}
                  >

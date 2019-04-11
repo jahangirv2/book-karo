@@ -13,7 +13,8 @@ import {
   Title,
   Row,
   Col,
-  Button
+  Button,
+  Right
 } from "native-base";
 import { KeyboardAvoidingView, View } from "react-native";
 
@@ -24,7 +25,15 @@ export class Home extends React.Component {
   render() {
     return (
       <Container>
-        <Header />
+        <Header style={{backgroundColor:"#dd3737"}} transparent >
+            <Right>
+            <Body>
+              <Title style={{color:"white"}}>
+              Home
+              </Title>
+            </Body>
+            </Right>
+            </Header>
         <Content>
           <Text>Thankyou For signing up!</Text>
         </Content>
