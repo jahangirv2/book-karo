@@ -18,7 +18,7 @@ import {
   Right
 } from "native-base";
 import { KeyboardAvoidingView, ToastAndroid,Image,ImageBackground } from "react-native";
-import firebase from '../firebase';
+import firebase from '../../configs/firebase';
 
 // import * as firebase from "firebase";
 
@@ -49,15 +49,19 @@ export class SignUp extends React.Component {
       name: ""
     });
   }
-  signUpUser = (email, password) => {
-    
-      if (this.state.password.length < 6) {
-        alert("Please enter atleast 6 characters");
-        return;
+
+  signUpUser = async (email, password) => {
+    const { navigation } = this.props;
+      try {
+        const resp = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        navigation.navigate('LoginScreen');
+      } catch(e) {
+        alert(e);
       }
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate('LoginScreen'))
-      .catch(error => alert(error));
+      
+      // firebase.auth().createUserWithEmailAndPassword(email, password)
+      // .then(() => this.props.navigation.navigate('LoginScreen'))
+      // .catch(error => alert(error));
     //   ToastAndroid.show('Sign Up Successfull', ToastAndroid.SHORT);
     //   this.props.navigation.navigate("LoginScreen");
 

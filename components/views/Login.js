@@ -1,9 +1,18 @@
 import React from 'react';
-import { Container, Header, Content, Form, Item, Input,Card,CardItem,Body,Text, Title,Row,Col,Button,Icon,Right,} from 'native-base';
+import {
+  Container,
+  Content,
+  Item,
+  Input,
+  Body,
+  Text,
+  Button,
+  Icon,
+} from 'native-base';
 import { KeyboardAvoidingView, ToastAndroid,Image ,ImageBackground} from 'react-native';
 // import * as firebase from "firebase";
 // import { Home } from './Home';
-import firebase from '../firebase';
+import firebase from '../../configs/firebase';
 
 export class Login extends React.Component{
   constructor(props){
@@ -19,6 +28,11 @@ export class Login extends React.Component{
       password: "",
     });
   }
+
+  componentWillReceiveProps = ({ token }) => {
+    if (!this.props.token && token) alert('Logged in!');
+  }
+
   loginUser = (email,password) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(() => this.props.navigation.navigate('HomeScreen'))
@@ -34,6 +48,8 @@ export class Login extends React.Component{
     header: null
 }
     render(){
+      const { login } = this.props;
+      const { email, password } = this.state;
       // if(this.state.logged){
       //   return <Home/>
       // }
@@ -86,9 +102,7 @@ export class Login extends React.Component{
                 </Item>
                 <Item style={{marginTop:10,alignSelf:"center"}} rounded>
                 <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",}}
-                onPress={() =>
-                  this.loginUser(this.state.email, this.state.password)
-                }
+                  onPress={() => login(email, password)}
                 >
                   <Text>
                     Sign In!
