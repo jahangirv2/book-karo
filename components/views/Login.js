@@ -29,7 +29,8 @@ export class Login extends React.Component{
     });
   }
 
-  componentWillReceiveProps = ({ token }) => {
+  componentWillReceiveProps({ token }) {
+    alert('Hello');
     if (!this.props.token && token) alert('Logged in!');
   }
 
@@ -48,6 +49,8 @@ export class Login extends React.Component{
     header: null
 }
     render(){
+      // alert(JSON.stringify(this.props));
+      // alert(JSON.stringify(this.state));
       const { login } = this.props;
       const { email, password } = this.state;
       // if(this.state.logged){
@@ -102,7 +105,7 @@ export class Login extends React.Component{
                 </Item>
                 <Item style={{marginTop:10,alignSelf:"center"}} rounded>
                 <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",}}
-                  onPress={() => login(email, password)}
+                  onPress={() => login({ email, password })}
                 >
                   <Text>
                     Sign In!
