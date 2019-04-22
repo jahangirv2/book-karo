@@ -1,5 +1,5 @@
 import firebase from '../../configs/firebase';
-import { loginSuccess, loginFail, loginInProgress } from './actions';
+import { loginSuccess, loginFail, loginInProgress,signupSucess,signupInProgress,signupFail } from './actions';
 // export const login = async ({ email, password }) => dispatch => {
 //   try {
 //     dispatch(loginInProgress());
@@ -16,4 +16,14 @@ export const login = ({ email, password }) => dispatch => {
       dispatch(loginSuccess(resp))
     })
     .catch(e => dispatch(loginFail(e.message)))
+}
+
+export const signup = ({email,password}) => dispatch => {
+  dispatch(signupInProgress());
+  return firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(resp => {
+      dispatch(signupSucess(resp))
+    })
+    .catch(e => dispatch(signupFail(e.message)))
+  
 }

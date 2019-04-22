@@ -68,16 +68,33 @@ export class SignUp extends React.Component {
     // } catch (error) {
     //   console.log(error.toString());
     // }
+      
+
   };
-  loginUser = (email, password) => {};
+  
+
+  checkIfSigned = () => {
+    if(this.props.signUpToken===1)
+    this.props.navigation.navigate("LoginScreen");
+    else alert("Email was badly formatted or already in use");
+  }
 
   static navigationOptions = {
     header: null
   };
 
   render() {
-    return (
+    const { signup } = this.props;
+    const { email, password } = this.state;
 
+    submit = (email,password) => {
+      signup(email,password)
+      .then(()=> this.checkIfSigned());
+    }
+
+    // alert(JSON.stringify(this.props))
+    return (
+      
       <KeyboardAvoidingView behavior="padding"  style={{flex:1,}}>
         <Container>
           {/* <Header style={{backgroundColor:"#dd3737"}} transparent>
@@ -153,9 +170,7 @@ export class SignUp extends React.Component {
                       block
                       rounded
                       style={{ width: 150,backgroundColor:"#dd3737" }}
-                      onPress={() =>
-                        this.signUpUser(this.state.email, this.state.password)
-                      }
+                      onPress={() => submit({ email, password })}
                     >
                     
                     
