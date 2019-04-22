@@ -15,7 +15,8 @@ import {
   Col,
   Button,
   Icon,
-  Right
+  Right,
+  Spinner
 } from "native-base";
 import { KeyboardAvoidingView, ToastAndroid,Image,ImageBackground } from "react-native";
 import firebase from '../../configs/firebase';
@@ -123,6 +124,7 @@ export class SignUp extends React.Component {
           <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginBottom:60}}>
             Book KARO!
           </Text>
+          <Spinner color="red" animating = {this.props.isSigningUp}  />
             {/* <Card style={{backgroundColor:"transparent",}}> */}
               {/* <CardItem style={{backgroundColor:"#dd3737"}} bordered>
                 <Body style={{}}>

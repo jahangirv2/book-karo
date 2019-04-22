@@ -8,6 +8,7 @@ import {
   Text,
   Button,
   Icon,
+  Spinner
 } from 'native-base';
 import { KeyboardAvoidingView, ToastAndroid,Image ,ImageBackground} from 'react-native';
 // import * as firebase from "firebase";
@@ -89,10 +90,15 @@ export class Login extends React.Component{
                  style={{width:"100%",height:"100%",margin:0}}
                  imageStyle={{resizeMode:"cover"}}
                  >
+                 
             <Content contentContainerStyle={{justifyContent:"center",flex:1,}} padder>
+            
+                
+            
           <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center",}} />
         
                 <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginBottom:60}}>Book KARO!</Text>
+                <Spinner color="red" animating = {this.props.isLoggingIn}  />
                 
           
               {/* <Card> */}
@@ -123,6 +129,9 @@ export class Login extends React.Component{
                 <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",}}
                   onPress={() => submit({ email, password })}
                 >
+              
+
+                
                   <Text>
                     Sign In!
                   </Text>
