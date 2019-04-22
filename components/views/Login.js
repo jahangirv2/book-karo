@@ -30,8 +30,10 @@ export class Login extends React.Component{
   }
 
   componentWillReceiveProps({ token }) {
-    alert('Hello');
-    if (!this.props.token && token) alert('Logged in!');
+    // alert('Hello');
+    // if (!this.props.token && token) alert('Logged in!');
+
+   
   }
 
   loginUser = (email,password) => {
@@ -45,20 +47,34 @@ export class Login extends React.Component{
       // })
 
   }
+
+  checkIfLogged = () => {
+    if(this.props.token===1)
+    this.props.navigation.navigate("HomeScreen");
+    else alert("Email or Password was Incorrect");
+  }
+
   static navigationOptions = {
     header: null
 }
     render(){
+      // if(this.props.token === 1) this.props.navigation.navigate("HomeScreen");
       // alert(JSON.stringify(this.props));
       // alert(JSON.stringify(this.state));
+      // alert(JSON.stringify(this.props.isLoggingIn));
       const { login } = this.props;
       const { email, password } = this.state;
       // if(this.state.logged){
       //   return <Home/>
       // }
+      submit = (email,password) => {
+        login(email,password).then(()=> this.checkIfLogged());
+        // this.checkIfLogged();
+      }
         return(
           <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
             <Container>
+              
             {/* <Header style={{backgroundColor:"#dd3737"}} transparent >
             <Right>
             <Body>
@@ -105,7 +121,7 @@ export class Login extends React.Component{
                 </Item>
                 <Item style={{marginTop:10,alignSelf:"center"}} rounded>
                 <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",}}
-                  onPress={() => login({ email, password })}
+                  onPress={() => submit({ email, password })}
                 >
                   <Text>
                     Sign In!

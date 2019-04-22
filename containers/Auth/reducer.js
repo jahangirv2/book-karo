@@ -1,6 +1,6 @@
 const initialState = {
   isLoggingIn: false,
-  token: '',
+  token: 0,
 }
 
 export default authReducer = (state = initialState, action) => {
@@ -14,13 +14,13 @@ export default authReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
-        token: action.data.token,
+        token: 1,
       }
     case 'LOGIN_FAIL':
       return {
         ...state,
         isLoggingIn: false,
-        token: '',
+        token: 0,
       }
     default:
       return state;

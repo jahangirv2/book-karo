@@ -1,6 +1,5 @@
 import firebase from '../../configs/firebase';
 import { loginSuccess, loginFail, loginInProgress } from './actions';
-
 // export const login = async ({ email, password }) => dispatch => {
 //   try {
 //     dispatch(loginInProgress());
