@@ -1,6 +1,7 @@
 import React from 'react';
-import { View,Text } from 'react-native';
+import { View,Text ,Image} from 'react-native';
 import { Containter,Content, Container } from 'native-base';
+import logo from '../../delta.png'
 
 export class SplashScreen extends React.Component{
     render() {
@@ -15,16 +16,32 @@ export class SplashScreen extends React.Component{
         // };
     
         return (
-            <Container>
-                <Content contentContainerStyle={{justifyContent:"center",flex:1,}}>
-                <View style={{backgroundColor:"orange"}}>
-            <Text style={{color:"white",fontSize:40,fontWeight:"bold"}}>
-              Splash Screen
-            </Text>
+            // <Container>
+                // <Content contentContainerStyle={{justifyContent:"center",flex:1,}}>
+                <View style={styles.viewStyles}>
+                <Image source={logo} style={{width:250,height:250}}/>
+            {/* <Text style={styles.textStyles}>
+            
+              
+            </Text> */}
           </View>
-                </Content>
-            </Container>
+                // </Content>
+            // </Container>
           
         );
       }
     }
+
+    const styles = {
+        viewStyles: {
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'gray'
+        },
+        textStyles: {
+          color: 'white',
+          fontSize: 40,
+          fontWeight: 'bold'
+        }
+      }
