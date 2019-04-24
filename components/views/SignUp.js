@@ -20,6 +20,8 @@ import {
 } from "native-base";
 import { KeyboardAvoidingView, ToastAndroid,Image,ImageBackground } from "react-native";
 import firebase from '../../configs/firebase';
+import bgImage from '../../tablefinal.jpg'
+import logo from '../../delta.png'
 
 // import * as firebase from "firebase";
 
@@ -109,7 +111,7 @@ export class SignUp extends React.Component {
           </Header> */}
 
       <ImageBackground 
-                 source={require('../../tablefinal.jpg')}
+                 source={bgImage}
                  style={{width:"100%",height:"100%",margin:0}}
                  imageStyle={{resizeMode:"cover"}}
                  >
@@ -120,7 +122,7 @@ export class SignUp extends React.Component {
 
           {/* <Image source={require('../../city.jpg') } style={{}} /> */}
          
-          <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center"}} />
+          <Image source={logo} style={{width:250,height:250,alignSelf:"center"}} />
           <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginBottom:60}}>
             Book KARO!
           </Text>
@@ -167,19 +169,19 @@ export class SignUp extends React.Component {
                       onChangeText={password => this.setState({ password })}
                     />
                   </Item>
-                  <Item style={{ marginTop: 10, alignSelf: "center"  }} rounded>
+                  {/* <Item style={{ marginTop: 10, alignSelf: "center"  }} rounded> */}
                     <Button iconRight
                       block
                       rounded
-                      style={{ width: 150,backgroundColor:"#dd3737" }}
+                      style={{ width: 150,backgroundColor:"#dd3737",alignSelf:"center",marginTop:10 }}
                       onPress={() => submit({ email, password })}
                     >
                     
                     
                       <Text>Sign Up</Text>
-                      <Icon name="checkmark-circle"/>
+                      {/* <Icon name="checkmark-circle"/> */}
                     </Button>
-                  </Item>
+                  {/* </Item> */}
 
                   {/* <Item style={{ marginTop: 10, alignSelf: "center" }} rounded>
                     <Button

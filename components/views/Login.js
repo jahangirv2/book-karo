@@ -8,12 +8,16 @@ import {
   Text,
   Button,
   Icon,
-  Spinner
+  Spinner,
+  Card
 } from 'native-base';
 import { KeyboardAvoidingView, ToastAndroid,Image ,ImageBackground} from 'react-native';
 // import * as firebase from "firebase";
 // import { Home } from './Home';
 import firebase from '../../configs/firebase';
+import bgImage from '../../tablefinal.jpg'
+import logo from '../../delta.png'
+import { SplashScreen } from './SplashScreen';
 
 export class Login extends React.Component{
   constructor(props){
@@ -21,6 +25,7 @@ export class Login extends React.Component{
     this.state = {
       email:"",
       password:"",
+      loader: true,
     } 
   }
   componentWillMount() {
@@ -28,6 +33,14 @@ export class Login extends React.Component{
       email: "",
       password: "",
     });
+  }
+
+  async componentDidMount(){
+    const data = await this.performTimeConsumingTask();
+
+  if (data !== null) {
+    this.setState({ loader: false });
+  }
   }
 
   componentWillReceiveProps({ token }) {
@@ -48,6 +61,14 @@ export class Login extends React.Component{
       // })
 
   }
+  performTimeConsumingTask = async() => {
+    return new Promise((resolve) =>
+      setTimeout(
+        () => { resolve('result') },
+        2000
+      )
+    );
+  }
 
   checkIfLogged = () => {
     if(this.props.token===1)
@@ -59,6 +80,9 @@ export class Login extends React.Component{
     header: null
 }
     render(){
+      if(this.state.loader){
+        return <SplashScreen/>
+      }
       // if(this.props.token === 1) this.props.navigation.navigate("HomeScreen");
       // alert(JSON.stringify(this.props));
       // alert(JSON.stringify(this.state));
@@ -86,7 +110,7 @@ export class Login extends React.Component{
             </Right>
             </Header> */}
             <ImageBackground 
-                 source={require('../../tablefinal.jpg')}
+                 source={bgImage}
                  style={{width:"100%",height:"100%",margin:0}}
                  imageStyle={{resizeMode:"cover"}}
                  >
@@ -95,7 +119,7 @@ export class Login extends React.Component{
             
                 
             
-          <Image source={require('../../delta.png') } style={{width:250,height:250,alignSelf:"center",}} />
+          <Image source={logo} style={{width:250,height:250,alignSelf:"center",}} />
         
                 <Text style={{fontSize:24,fontWeight:"bold",alignSelf:"center",color:"white",marginBottom:60}}>Book KARO!</Text>
                 <Spinner color="red" animating = {this.props.isLoggingIn}  />
@@ -125,8 +149,8 @@ export class Login extends React.Component{
                   onChangeText={password => this.setState({ password })}
                   />
                 </Item>
-                <Item style={{marginTop:10,alignSelf:"center"}} rounded>
-                <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",}}
+                {/* <Item style={{marginTop:10,alignSelf:"center"}} rounded> */}
+                <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",alignSelf:"center",marginTop:10}}
                   onPress={() => submit({ email, password })}
                 >
               
@@ -135,9 +159,9 @@ export class Login extends React.Component{
                   <Text>
                     Sign In!
                   </Text>
-                  <Icon name="checkmark-circle"/>
+                  {/* <Icon name="checkmark-circle"/> */}
                 </Button>
-                </Item>
+                {/* </Item> */}
                 
                   <Button style={{alignSelf:"center",}} transparent primary onPress={()=> this.props.navigation.navigate('Signup')}>
                   <Text>
