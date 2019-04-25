@@ -18,7 +18,7 @@ import {
   Right,
   Spinner
 } from "native-base";
-import { KeyboardAvoidingView, ToastAndroid,Image,ImageBackground } from "react-native";
+import { KeyboardAvoidingView, ToastAndroid,Image,ImageBackground,Keyboard } from "react-native";
 import firebase from '../../configs/firebase';
 import bgImage from '../../tablefinal.jpg'
 import logo from '../../delta.png'
@@ -91,6 +91,7 @@ export class SignUp extends React.Component {
     const { email, password } = this.state;
 
     submit = (email,password) => {
+      Keyboard.dismiss();
       signup(email,password)
       .then(()=> this.checkIfSigned());
     }

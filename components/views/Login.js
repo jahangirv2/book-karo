@@ -11,7 +11,8 @@ import {
   Spinner,
   Card
 } from 'native-base';
-import { KeyboardAvoidingView, ToastAndroid,Image ,ImageBackground} from 'react-native';
+import { KeyboardAvoidingView, ToastAndroid,Image ,ImageBackground,Keyboard} from 'react-native';
+// import { SplashScreen } from 'expo';
 // import * as firebase from "firebase";
 // import { Home } from './Home';
 import firebase from '../../configs/firebase';
@@ -93,6 +94,7 @@ export class Login extends React.Component{
       //   return <Home/>
       // }
       submit = (email,password) => {
+        Keyboard.dismiss();
         login(email,password).then(()=> this.checkIfLogged());
         // this.checkIfLogged();
       }
@@ -150,6 +152,7 @@ export class Login extends React.Component{
                   />
                 </Item>
                 {/* <Item style={{marginTop:10,alignSelf:"center"}} rounded> */}
+                
                 <Button iconRight block rounded style={{width:150,backgroundColor:"#dd3737",alignSelf:"center",marginTop:10}}
                   onPress={() => submit({ email, password })}
                 >
