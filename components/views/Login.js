@@ -36,13 +36,13 @@ export class Login extends React.Component{
     });
   }
 
-  async componentDidMount(){
-    const data = await this.performTimeConsumingTask();
+  // async componentDidMount(){
+  //   const data = await this.performTimeConsumingTask();
 
-  if (data !== null) {
-    this.setState({ loader: false });
-  }
-  }
+  // if (data !== null) {
+  //   this.setState({ loader: false });
+  // }
+  // }
 
   componentWillReceiveProps({ token }) {
     // alert('Hello');
@@ -62,14 +62,14 @@ export class Login extends React.Component{
       // })
 
   }
-  performTimeConsumingTask = async() => {
-    return new Promise((resolve) =>
-      setTimeout(
-        () => { resolve('result') },
-        2500
-      )
-    );
-  }
+  // performTimeConsumingTask = async() => {
+  //   return new Promise((resolve) =>
+  //     setTimeout(
+  //       () => { resolve('result') },
+  //       2500
+  //     )
+  //   );
+  // }
 
   checkIfLogged = () => {
     if(this.props.token===1)
@@ -81,9 +81,9 @@ export class Login extends React.Component{
     header: null
 }
     render(){
-      if(this.state.loader){
-        return <SplashScreen/>
-      }
+      // if(this.state.loader){
+      //   return <SplashScreen/>
+      // }
       // if(this.props.token === 1) this.props.navigation.navigate("HomeScreen");
       // alert(JSON.stringify(this.props));
       // alert(JSON.stringify(this.state));
