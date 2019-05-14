@@ -14,22 +14,7 @@
       "id": 3,
       "title": "Marriot Hotel Karachi",
       "price": 17400
-    },
-    {
-      "id": 4,
-      "title": "Diwan Hunza House",
-      "price": 15000
-    },
-    {
-      "id": 5,
-      "title": "Old Hunza Inn",
-      "price": 12000
-    },
-    {
-      "id": 6,
-      "title": "Serena Hotel Islamabad",
-      "price": 25000
-    },
+    }
   ],
   "comments": [
     {
