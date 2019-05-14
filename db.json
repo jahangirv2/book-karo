@@ -1,58 +1,31 @@
 {
-  "posts": [
+  "hotels": [
     {
       "id": 1,
-      "name": "Mountain Story",
-      "price": "12000"
+      "title": "Post 1"
     },
     {
       "id": 2,
-      "name": "Hunza Serena inn",
-      "price": "10500",
+      "title": "Post 2"
     },
     {
       "id": 3,
-      "name": "Hotel Sarai Silk",
-      "price": "5200"
-    },
-    {
-      "id": 4,
-      "name": "Avari Towers Karachi",
-      "price": "24000"
-    },
-    {
-      "id": 5,
-      "name": "Pearl Continental Karachi",
-      "price": "18000"
-    },
-    {
-      "id": 6,
-      "name": "Borith Lake Hotel & Resort",
-      "price": "8700"
-    },
-    {
-      "id": 7,
-      "name": "Old Hunza Inn",
-      "price": "3600"
-    },
-    {
-      "id": 8,
-      "name": "Islamabad Serena Hotel",
-      "price": "10000"
-    },
-    {
-      "id": 9,
-      "name": "Rose Palace Hotel",
-      "price": "9800"
-    },
-    {
-      "id": 10,
-      "name": "Diwan Hunza House",
-      "price": "5000"
-    },
+      "title": "Post 3"
+    }
   ],
-  
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
   "profile": {
     "name": "book-karo"
   }
-
+}
