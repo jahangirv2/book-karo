@@ -1,15 +1,55 @@
 {
   "Hotels": [
-    { "id": 1, "Name": "Mountain Story", "Price": "12,000" },
-    { "id": 2, "Name": "Hunza Serena Inn", "Price": "10,500" },
-    { "id": 3, "Name": "Hotel Sarai Silk Route", "Price": "5280" },
-    { "id": 4, "Name": "Gulmit Continental Hotel", "Price": "6000" },
-    { "id": 5, "Name": "Borith Lake Hotel & Resort", "Price": "7000" },
-    { "id": 6, "Name": "Old Hunza Inn", "Price": "2500" },
-    { "id": 7, "Name": "Diwan Hunza House", "Price": "3600" },
-    { "id": 8, "Name": "Islamabad Serena Hotel", "Price": "42488" },
-    { "id": 9, "Name": "Serene Residence", "Price": "3017" },
-    { "id": 10, "Name": "Rose Palace Hotel", "Price": "2,300" },
+    {
+      "id": 1,
+      "name": "Mountain Story",
+      "price": "12000",
+    },
+    {
+      "id": 2,
+      "name": "Hunza Serena inn",
+      "price": "10500",
+    },
+    {
+      "id": 3,
+      "name": "Hotel Sarai Silk",
+      "price": "5200",
+    },
+    {
+      "id": 4,
+      "name": "Avari Towers Karachi",
+      "price": "24000",
+    },
+    {
+      "id": 5,
+      "name": "Pearl Continental Karachi",
+      "price": "18000",
+    },
+    {
+      "id": 6,
+      "name": "Borith Lake Hotel & Resort",
+      "price": "8700",
+    },
+    {
+      "id": 7,
+      "name": "Old Hunza Inn",
+      "price": "3600",
+    },
+    {
+      "id": 8,
+      "name": "Islamabad Serena Hotel",
+      "price": "10000",
+    },
+    {
+      "id": 9,
+      "name": "Rose Palace Hotel",
+      "price": "9800",
+    },
+    {
+      "id": 10,
+      "name": "Diwan Hunza House",
+      "price": "5000",
+    },
   ],
   
   "profile": {
