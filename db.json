@@ -1,8 +1,8 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
+  "Hotels": [
+    { "id": 1, "Name": "Mountain Story" "Price": "12,000" },
+    { "id": 2, "Name": "Hunza Serena Inn" "Price": "10,500" },
+    { "id": 3, "Name": "Hotel Sarai Silk Route" "Price": "5280" }
   ],
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 },
