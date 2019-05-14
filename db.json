@@ -1,20 +1,17 @@
 {
-  "posts": [
-    { "id": 1, "Name": "Mountain Story" "Price": "12,000" },
-    { "id": 2, "Name": "Hunza Serena Inn" "Price": "10,500" },
-    { "id": 3, "Name": "Hotel Sarai Silk Route" "Price": "5280" },
-    { "id": 4, "Name": "Gulmit Continental Hotel" "Price": "6000" },
-    { "id": 5, "Name": "Borith Lake Hotel & Resort" "Price": "7000" },
-    { "id": 6, "Name": "Old Hunza Inn" "Price": "2500" },
-    { "id": 7, "Name": "Diwan Hunza House" "Price": "3600" },
-    { "id": 8, "Name": "Islamabad Serena Hotel" "Price": "42488" },
-    { "id": 9, "Name": "Serene Residence" "Price": "3017" },
-    { "id": 10, "Name": "Rose Palace Hotel" "Price": "2,300" },
+  "Hotels": [
+    { "id": 1, "Name": "Mountain Story", "Price": "12,000" },
+    { "id": 2, "Name": "Hunza Serena Inn", "Price": "10,500" },
+    { "id": 3, "Name": "Hotel Sarai Silk Route", "Price": "5280" },
+    { "id": 4, "Name": "Gulmit Continental Hotel", "Price": "6000" },
+    { "id": 5, "Name": "Borith Lake Hotel & Resort", "Price": "7000" },
+    { "id": 6, "Name": "Old Hunza Inn", "Price": "2500" },
+    { "id": 7, "Name": "Diwan Hunza House", "Price": "3600" },
+    { "id": 8, "Name": "Islamabad Serena Hotel", "Price": "42488" },
+    { "id": 9, "Name": "Serene Residence", "Price": "3017" },
+    { "id": 10, "Name": "Rose Palace Hotel", "Price": "2,300" },
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
+  
   "profile": {
     "name": "book-karo"
   }
