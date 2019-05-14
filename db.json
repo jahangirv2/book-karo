@@ -1,5 +1,5 @@
 {
-  "Hotels": [
+  "posts": [
     { "id": 1, "Name": "Mountain Story" "Price": "12,000" },
     { "id": 2, "Name": "Hunza Serena Inn" "Price": "10,500" },
     { "id": 3, "Name": "Hotel Sarai Silk Route" "Price": "5280" },
