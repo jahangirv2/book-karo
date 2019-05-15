@@ -17,22 +17,32 @@ import {
   Right
 } from "native-base";
 import { KeyboardAvoidingView, View } from "react-native";
+import { AppLoading } from 'expo';
 
 export class Home extends React.Component {
-componentDidMount(){
+componentWillMount(){
   // const { fetchHotels } = this.props;
-  this.props.fetchHotels()
+  this.props.fetchHotels().then(()=> this.checkifReceived());
 }
-
+checkifReceived = () => {
+  alert(JSON.stringify(this.props.data))
+}
 
   static navigationOptions = {
     header: null
   };
   render() {
+    if(this.props.data === null){
+      return <AppLoading/>
+    }
+    const { data } = this.props;
+    // const { data } = this.props;
     // const { fetchHotels } = this.props;
     // const { data } = this.props;
     // data.json();
-    alert(JSON.stringify(this.props.data));
+    // alert(JSON.stringify(this.props.data));
+    // alert(JSON.stringify(this.state.data))
+    if(this.props.data != null){
     return (
       <Container>
         <Header style={{backgroundColor:"#dd3737"}} transparent >
@@ -45,9 +55,18 @@ componentDidMount(){
             </Right>
             </Header>
         <Content>
-          <Text>Thankyou For signing up!</Text>
+          {/* <Text> */}
+            {data.map(item=> (
+              <Text key = {item.id}>
+                {item.title}
+              </Text>
+              
+            ))}
+            
+          {/* </Text> */}
         </Content>
       </Container>
     );
   }
+}
 }
