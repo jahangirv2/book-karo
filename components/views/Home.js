@@ -14,7 +14,8 @@ import {
   Row,
   Col,
   Button,
-  Right
+  Right,
+  Spinner
 } from "native-base";
 import { KeyboardAvoidingView, View } from "react-native";
 import { AppLoading } from 'expo';
@@ -32,8 +33,10 @@ checkifReceived = () => {
     header: null
   };
   render() {
-    if(this.props.data === null){
-      return <AppLoading/>
+    if(this.props.isFetching){
+      return <Spinner color = "red" style={{flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',}}/>
     }
     const { data } = this.props;
     // const { data } = this.props;
@@ -42,7 +45,7 @@ checkifReceived = () => {
     // data.json();
     // alert(JSON.stringify(this.props.data));
     // alert(JSON.stringify(this.state.data))
-    if(this.props.data != null){
+    // if(this.props.data != null){
     return (
       <Container>
         <Header style={{backgroundColor:"#dd3737"}} transparent >
@@ -68,5 +71,5 @@ checkifReceived = () => {
       </Container>
     );
   }
-}
+// }
 }
