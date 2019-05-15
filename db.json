@@ -1,0 +1,25 @@
+{
+  "hotels": [
+    {
+      "id": 1,
+      "title": "Avari Towers Karachi",
+      "price": 24000
+    },
+    {
+      "id": 2,
+      "title": "Pearl Continental Karachi",
+      "price": 8500
+    },
+    {
+      "id": 3,
+      "title": "Marriot Hotel Karachi",
+      "price": 17400
+    }
+  ],
+ 
+  "comments": [],
+  
+  "profile": {
+    "name": "book-karo"
+  }
+}
