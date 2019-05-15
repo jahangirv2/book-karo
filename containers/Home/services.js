@@ -1,4 +1,6 @@
 import { fetchSucess, fetchFail, fetchInProgress,} from './actions';
+// import { fet } from './actions';
+// import { loginSuccess } from '../Auth/actions';
 // export const login = async ({ email, password }) => dispatch => {
 //   try {
 //     dispatch(loginInProgress());
@@ -8,8 +10,8 @@ import { fetchSucess, fetchFail, fetchInProgress,} from './actions';
 //     dispatch(loginFail(e.message));
 //   }
 // }
-export const fetchHotels = (data) => dispatch => {
+export const fetchHotels = () => dispatch => {
   dispatch(fetchInProgress());
-  return fetch("https://my-json-server.typicode.com/jahangirv2/book-karo/hotels").then(res => res.json()).then(dispatch(fetchSucess(res)))
-  .catch(e => dispatch(loginFail(e.message)))
+  return  fetch("https://my-json-server.typicode.com/jahangirv2/book-karo/hotels").then(res => res.json()).then(res => dispatch(fetchSucess(res)));
+   
 }

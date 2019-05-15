@@ -19,11 +19,20 @@ import {
 import { KeyboardAvoidingView, View } from "react-native";
 
 export class Home extends React.Component {
+componentDidMount(){
+  // const { fetchHotels } = this.props;
+  this.props.fetchHotels()
+}
+
+
   static navigationOptions = {
     header: null
   };
   render() {
-    alert(JSON.stringify(this.props));
+    // const { fetchHotels } = this.props;
+    // const { data } = this.props;
+    // data.json();
+    alert(JSON.stringify(this.props.data));
     return (
       <Container>
         <Header style={{backgroundColor:"#dd3737"}} transparent >

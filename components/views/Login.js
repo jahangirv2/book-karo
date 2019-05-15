@@ -88,6 +88,7 @@ export class Login extends React.Component{
     header: null
 }
     render(){
+      // alert(JSON.stringify(this.props));
       // alert(JSON.stringify(this.state.data));
       // if(this.state.loader){
       //   return <SplashScreen/>

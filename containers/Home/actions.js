@@ -4,8 +4,8 @@ import {
   import firebase from '../../configs/firebase';
   import * as services from './services';
   
-  export const fetchHotels = (data) =>
-    services.fetchHotels(data);
+  export const fetchHotels = () =>
+    services.fetchHotels();
   
   export const fetchInProgress = data => ({
     type: FETCH,

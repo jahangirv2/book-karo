@@ -7,7 +7,7 @@ const mapStateToProps = ({ home }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchHotels: data => dispatch(actionTypes.fetchData(data)),
+  fetchHotels: () => dispatch(actionTypes.fetchHotels()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
