@@ -62,9 +62,27 @@ checkifReceived = () => {
         <Content>
           {/* <Text> */}
             {data.map(item=> (
-              <Text key = {item.id}>
-                {item.title}
-              </Text>
+              
+               <Card key={item.id}> 
+                 <CardItem style={{backgroundColor:"#dd3737"}} >
+                  <Body style={{}}>
+                    <Text style={{color:"white",fontSize:24,fontWeight:'bold',alignSelf:"center",}}>
+                        {item.title}
+                      
+                    </Text>
+                  </Body>
+                  </CardItem> 
+                  <CardItem>
+                    <Body>
+                      <Text> Price starting from : {item.price}</Text>
+                    </Body>
+
+                  </CardItem>
+                </Card>
+                
+              // <Text key = {item.id}>
+              //   {item.title}
+              // </Text>
               
             ))}
             
