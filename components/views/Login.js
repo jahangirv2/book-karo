@@ -27,13 +27,20 @@ export class Login extends React.Component{
       email:"",
       password:"",
       loader: true,
+      data:[],
     } 
   }
   componentWillMount() {
     this.setState({
       email: "",
       password: "",
+      
     });
+  }
+  componentDidMount(){
+
+    fetch("https://my-json-server.typicode.com/jahangirv2/book-karo/posts").then(res => res.json()).then(res => this.setState({data: res}))
+   
   }
 
   // async componentDidMount(){
@@ -81,6 +88,7 @@ export class Login extends React.Component{
     header: null
 }
     render(){
+      // alert(JSON.stringify(this.state.data));
       // if(this.state.loader){
       //   return <SplashScreen/>
       // }
@@ -90,6 +98,7 @@ export class Login extends React.Component{
       // alert(JSON.stringify(this.props.isLoggingIn));
       const { login } = this.props;
       const { email, password } = this.state;
+      
       // if(this.state.logged){
       //   return <Home/>
       // }

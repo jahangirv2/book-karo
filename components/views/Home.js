@@ -23,6 +23,7 @@ export class Home extends React.Component {
     header: null
   };
   render() {
+    alert(JSON.stringify(this.props));
     return (
       <Container>
         <Header style={{backgroundColor:"#dd3737"}} transparent >

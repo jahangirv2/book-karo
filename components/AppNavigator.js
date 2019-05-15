@@ -3,7 +3,8 @@ import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Signup } from '../containers/Auth';
 // import { Login } from "./views/Login";
 import Login from '../containers/Auth';
-import { Home } from "./views/Home";
+// import { Home } from "./views/Home";
+import Home from '../containers/Home';
 
 const AppNavigator = createStackNavigator({
   LoginScreen: Login,

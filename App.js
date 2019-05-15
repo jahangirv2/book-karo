@@ -41,7 +41,7 @@ export default class App extends React.Component {
       return <SplashScreen />;
     }
     return (
-      <Provider store={store} >
+      <Provider store={store}>
         <AppContainer/>
       </Provider>
     );
