@@ -19,6 +19,7 @@ import {
 } from "native-base";
 import { KeyboardAvoidingView, View } from "react-native";
 import { AppLoading } from 'expo';
+import { ScrollView } from "react-native-gesture-handler";
 
 export class Home extends React.Component {
 componentWillMount(){
@@ -57,6 +58,7 @@ checkifReceived = () => {
             </Body>
             </Right>
             </Header>
+            <ScrollView>
         <Content>
           {/* <Text> */}
             {data.map(item=> (
@@ -68,6 +70,7 @@ checkifReceived = () => {
             
           {/* </Text> */}
         </Content>
+        </ScrollView>
       </Container>
     );
   }
