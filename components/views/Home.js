@@ -17,9 +17,12 @@ import {
   Right,
   Spinner
 } from "native-base";
-import { KeyboardAvoidingView, View } from "react-native";
+import { KeyboardAvoidingView, View,ImageBackground  } from "react-native";
 import { AppLoading } from 'expo';
 import { ScrollView } from "react-native-gesture-handler";
+import bgImage from '../../tablefinal.jpg';
+
+
 
 export class Home extends React.Component {
 componentWillMount(){
@@ -52,7 +55,12 @@ checkifReceived = () => {
       }
     return (
       <Container>
-        <Header style={{backgroundColor:"#dd3737"}} transparent >
+        <ImageBackground 
+                 source={bgImage}
+                 style={{width:"100%",height:"100%",margin:0}}
+                 imageStyle={{resizeMode:"cover"}}
+                 >
+        <Header style={{backgroundColor:"#dd3737",}} transparent >
             <Right>
             <Body>
               <Title style={{color:"white"}}>
@@ -62,11 +70,12 @@ checkifReceived = () => {
             </Right>
             </Header>
             <ScrollView>
+            
         <Content>
           {/* <Text> */}
             {data.map(item=> (
               
-               <Card key={item.id}> 
+               <Card style={{backgroundColor:"transparent"}} key={item.id}> 
                  <CardItem style={{backgroundColor:"#dd3737"}} >
                   <Body style={{}}>
                     <Text style={{color:"white",fontSize:24,fontWeight:'bold',alignSelf:"center",}}>
@@ -74,15 +83,20 @@ checkifReceived = () => {
                     </Text>
                   </Body>
                   </CardItem> 
-                  <CardItem>
-                    <Item>
-                    <Body>
-                      <Text style={{fontWeight:"bold",alignSelf:"center"}}> Address: {item.address}</Text>
-                    </Body>
-                    </Item>
-                  </CardItem>
-                  <CardItem>
-                    <Body>
+                  <CardItem style={{backgroundColor:'rgba(255, 255, 255, 0.2)'}}>
+                    {/* <Item> */}
+                    <Body style={{flexDirection:"column",justifyContent:"center"}}>
+                      <Text style={{fontWeight:"bold",alignSelf:"center",color:"white"}}> Address: </Text><Text style={{alignSelf:"center",marginTop:5,color:"white"}}>{item.address}</Text>
+                    {/* </Body> */}
+                    {/* </Item> */}
+                  {/* </CardItem> */}
+                  {/* <CardItem style={{}}> */}
+                    {/* <Body> */}
+                      <Text style={{alignSelf:"center",fontWeight:"bold",fontSize:16,marginTop:10,color:"white"}}> Price Starting From {item.price}</Text>
+                    {/* </Body> */}
+                  {/* </CardItem> */}
+                  {/* <CardItem> */}
+                    {/* <Body> */}
                     <Button block rounded style={{backgroundColor:"#dd3737",alignSelf:"center",marginTop:10}}
                   onPress={() => submit(item)}
                 >
@@ -92,11 +106,7 @@ checkifReceived = () => {
                 </Button>
                     </Body>
                   </CardItem>
-                  <CardItem style={{backgroundColor:"#dd3737"}}>
-                    <Body>
-                      <Text style={{fontSize:25,fontWeight:"bold",alignSelf:"center",color:"white"}}> Price Starting From {item.price}</Text>
-                    </Body>
-                  </CardItem>
+                  
              
                 </Card>
                 
@@ -107,8 +117,11 @@ checkifReceived = () => {
             ))}
             
           {/* </Text> */}
+          
         </Content>
+        {/* </ImageBackground> */}
         </ScrollView>
+        </ImageBackground>
       </Container>
     );
   }
