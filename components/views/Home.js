@@ -47,6 +47,9 @@ checkifReceived = () => {
     // alert(JSON.stringify(this.props.data));
     // alert(JSON.stringify(this.state.data))
     // if(this.props.data != null){
+      submit = (cardData) => {
+        alert(JSON.stringify(cardData));
+      }
     return (
       <Container>
         <Header style={{backgroundColor:"#dd3737"}} transparent >
@@ -68,16 +71,33 @@ checkifReceived = () => {
                   <Body style={{}}>
                     <Text style={{color:"white",fontSize:24,fontWeight:'bold',alignSelf:"center",}}>
                         {item.title}
-                      
                     </Text>
                   </Body>
                   </CardItem> 
                   <CardItem>
+                    <Item>
                     <Body>
-                      <Text> Price starting from : {item.price}</Text>
+                      <Text style={{fontWeight:"bold",alignSelf:"center"}}> Address: {item.address}</Text>
                     </Body>
-
+                    </Item>
                   </CardItem>
+                  <CardItem>
+                    <Body>
+                    <Button block rounded style={{backgroundColor:"#dd3737",alignSelf:"center",marginTop:10}}
+                  onPress={() => submit(item)}
+                >
+                  <Text>
+                    Book Now!
+                  </Text>
+                </Button>
+                    </Body>
+                  </CardItem>
+                  <CardItem style={{backgroundColor:"#dd3737"}}>
+                    <Body>
+                      <Text style={{fontSize:25,fontWeight:"bold",alignSelf:"center",color:"white"}}> Price Starting From {item.price}</Text>
+                    </Body>
+                  </CardItem>
+             
                 </Card>
                 
               // <Text key = {item.id}>

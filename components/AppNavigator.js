@@ -7,9 +7,10 @@ import Login from '../containers/Auth';
 import Home from '../containers/Home';
 
 const AppNavigator = createStackNavigator({
+  
   LoginScreen: Login,
   Signup: Signup,
-  HomeScreen: Home
+  HomeScreen: Home,
 });
 
 export default createAppContainer(AppNavigator);
