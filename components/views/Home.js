@@ -15,7 +15,8 @@ import {
   Col,
   Button,
   Right,
-  Spinner
+  Spinner,
+  DatePicker
 } from "native-base";
 import { KeyboardAvoidingView, View,ImageBackground  } from "react-native";
 import { AppLoading } from 'expo';
@@ -25,10 +26,19 @@ import bgImage from '../../tablefinal.jpg';
 
 
 export class Home extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      showDatePicker: false,
+      item: [],
+      chosenDate: new Date(),
+    }
+  }
 componentWillMount(){
   // const { fetchHotels } = this.props;
   this.props.fetchHotels().then(()=> this.checkifReceived());
 }
+
 checkifReceived = () => {
   alert(JSON.stringify(this.props.data))
 }
@@ -36,11 +46,39 @@ checkifReceived = () => {
   static navigationOptions = {
     header: null
   };
+  setDate = (newDate) => {
+    this.setState({ chosenDate: newDate, showDatePicker:false,});
+    // alert("Hotel Booked");
+  }
   render() {
     if(this.props.isFetching){
       return <Spinner color = "red" style={{flex: 1,
         alignItems: 'center',
         justifyContent: 'center',}}/>
+    }
+    
+    if(this.state.showDatePicker){
+      
+      return(
+        <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+      <DatePicker 
+            defaultDate={new Date(2018, 4, 4)}
+            minimumDate={new Date(2018, 1, 1)}
+            maximumDate={new Date(2018, 12, 31)}
+            locale={"en"}
+            timeZoneOffsetInMinutes={undefined}
+            modalTransparent={false}
+            animationType={"fade"}
+            androidMode={"default"}
+            placeHolderText="Select date" 
+            textStyle={{ color: "green" }}
+            placeHolderTextStyle={{ color: "black" }}
+            onDateChange={this.setDate}
+            disabled={false}
+            >Select Date</DatePicker>
+            </View>
+      )
+      
     }
     const { data } = this.props;
     // const { data } = this.props;
@@ -51,7 +89,7 @@ checkifReceived = () => {
     // alert(JSON.stringify(this.state.data))
     // if(this.props.data != null){
       submit = (cardData) => {
-        alert(JSON.stringify(cardData));
+        this.setState({item: cardData,showDatePicker:true});
       }
     return (
       <Container>
