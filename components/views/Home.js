@@ -25,19 +25,22 @@ import bgImage from '../../tablefinal.jpg';
 
 
 
+
 export class Home extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       showDatePicker: false,
-      item: [],
-      chosenDate: new Date(),
+      item: {},
+      chosenDate: '',
     }
   }
-componentWillMount(){
-  // const { fetchHotels } = this.props;
+componentDidMount(){
   this.props.fetchHotels().then(()=> this.checkifReceived());
 }
+
+handleOnItemSelect = item =>
+  this.setState({ item, showDatePicker: true });
 
 checkifReceived = () => {
   alert(JSON.stringify(this.props.data))
@@ -46,75 +49,62 @@ checkifReceived = () => {
   static navigationOptions = {
     header: null
   };
-  setDate = (newDate) => {
-    this.setState({ chosenDate: newDate, showDatePicker:false,});
+ 
+  setDate = (chosenDate) => {
+    this.setState({ chosenDate, showDatePicker:false,});
     // alert("Hotel Booked");
-  }
+    }
   render() {
-    if(this.props.isFetching){
-      return <Spinner color = "red" style={{flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',}}/>
-    }
-    
-    if(this.state.showDatePicker){
-      
-      return(
-        <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-      <DatePicker 
-            defaultDate={new Date(2018, 4, 4)}
-            minimumDate={new Date(2018, 1, 1)}
-            maximumDate={new Date(2018, 12, 31)}
-            locale={"en"}
-            timeZoneOffsetInMinutes={undefined}
-            modalTransparent={false}
-            animationType={"fade"}
-            androidMode={"default"}
-            placeHolderText="Select date" 
-            textStyle={{ color: "green" }}
-            placeHolderTextStyle={{ color: "black" }}
-            onDateChange={this.setDate}
-            disabled={false}
-            >Select Date</DatePicker>
-            </View>
-      )
-      
-    }
     const { data } = this.props;
-    // const { data } = this.props;
-    // const { fetchHotels } = this.props;
-    // const { data } = this.props;
-    // data.json();
-    // alert(JSON.stringify(this.props.data));
-    // alert(JSON.stringify(this.state.data))
-    // if(this.props.data != null){
-      submit = (cardData) => {
-        this.setState({item: cardData,showDatePicker:true});
-      }
+    if(this.props.isFetching) {
+      return (
+        <Spinner color = "red" style={{flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',}}
+        />
+      )
+    }
     return (
       <Container>
         <ImageBackground 
-                 source={bgImage}
-                 style={{width:"100%",height:"100%",margin:0}}
-                 imageStyle={{resizeMode:"cover"}}
-                 >
-        <Header style={{backgroundColor:"#dd3737",}} transparent >
+          source={bgImage}
+          style={{width:"100%",height:"100%",margin:0}}
+          imageStyle={{resizeMode:"cover"}}
+        >
+        {this.state.showDatePicker ? (
+          <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+            <DatePicker 
+              defaultDate={new Date(2018, 4, 4)}
+              minimumDate={new Date(2018, 1, 1)}
+              maximumDate={new Date(2018, 12, 31)}
+              locale={"en"}
+              timeZoneOffsetInMinutes={undefined}
+              modalTransparent={false}
+              animationType={"fade"}
+              androidMode={"default"}
+              placeHolderText="Select date" 
+              textStyle={{ color: "green" }}
+              placeHolderTextStyle={{ color: "white" }}
+              onDateChange={this.setDate}
+              disabled={false}
+            />
+          </View>
+        ) : (
+          <>
+          <Header style={{backgroundColor:"#dd3737",}} transparent >
             <Right>
-            <Body>
-              <Title style={{color:"white"}}>
-              Home
-              </Title>
-            </Body>
+              <Body>
+                <Title style={{color:"white"}}>
+                  Home
+                </Title>
+              </Body>
             </Right>
-            </Header>
-            <ScrollView>
-            
-        <Content>
-          {/* <Text> */}
-            {data.map(item=> (
-              
-               <Card style={{backgroundColor:"transparent"}} key={item.id}> 
-                 <CardItem style={{backgroundColor:"#dd3737"}} >
+          </Header>
+          <ScrollView>  
+            <Content>
+              {data.map(item=> (
+              <Card style={{backgroundColor:"transparent"}} key={item.id}> 
+                <CardItem style={{backgroundColor:"#dd3737"}} >
                   <Body style={{}}>
                     <Text style={{color:"white",fontSize:24,fontWeight:'bold',alignSelf:"center",}}>
                         {item.title}
@@ -122,46 +112,26 @@ checkifReceived = () => {
                   </Body>
                   </CardItem> 
                   <CardItem style={{backgroundColor:'rgba(255, 255, 255, 0.2)'}}>
-                    {/* <Item> */}
                     <Body style={{flexDirection:"column",justifyContent:"center"}}>
                       <Text style={{fontWeight:"bold",alignSelf:"center",color:"white"}}> Address: </Text><Text style={{alignSelf:"center",marginTop:5,color:"white"}}>{item.address}</Text>
-                    {/* </Body> */}
-                    {/* </Item> */}
-                  {/* </CardItem> */}
-                  {/* <CardItem style={{}}> */}
-                    {/* <Body> */}
                       <Text style={{alignSelf:"center",fontWeight:"bold",fontSize:16,marginTop:10,color:"white"}}> Price Starting From {item.price}</Text>
-                    {/* </Body> */}
-                  {/* </CardItem> */}
-                  {/* <CardItem> */}
-                    {/* <Body> */}
-                    <Button block rounded style={{backgroundColor:"#dd3737",alignSelf:"center",marginTop:10}}
-                  onPress={() => submit(item)}
-                >
-                  <Text>
-                    Book Now!
-                  </Text>
-                </Button>
+                      <Button block rounded style={{backgroundColor:"#dd3737",alignSelf:"center",marginTop:10}}
+                        onPress={() => this.handleOnItemSelect(item)}
+                      >
+                        <Text>
+                          Book Now!
+                        </Text>
+                      </Button>
                     </Body>
                   </CardItem>
-                  
-             
                 </Card>
-                
-              // <Text key = {item.id}>
-              //   {item.title}
-              // </Text>
-              
-            ))}
-            
-          {/* </Text> */}
-          
-        </Content>
-        {/* </ImageBackground> */}
-        </ScrollView>
+              ))}
+            </Content>
+          </ScrollView>
+          </>
+        )}
         </ImageBackground>
       </Container>
     );
   }
-// }
 }
