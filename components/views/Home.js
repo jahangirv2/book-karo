@@ -33,7 +33,7 @@ export class Home extends React.Component {
       item: {},
       chosenDate: "",
       hotelSelected: "",
-      emailId: "",
+      emailId: ""
       // itemId  : this.props.navigation.state.params.itemId,
     };
   }
@@ -57,13 +57,14 @@ export class Home extends React.Component {
     const { navigation } = this.props;
     const itemId = navigation.getParam("itemId");
     this.state.emailId = itemId;
-    alert(itemId);
+    //alert(itemId);
     firebase
       .database()
       .ref("booked")
-      .set({
+      .push({
         date: chosenDate.toString(),
-        hotelSelected: this.state.item
+        hotelSelected: this.state.item,
+        email: itemId
       });
   };
   render() {
@@ -71,12 +72,11 @@ export class Home extends React.Component {
     // const itemId = navigation.getParam('itemId');
     // alert(navigation.getParam('itemId'))
     // alert(JSON.stringify(itemId));
-    
+
     const { data } = this.props;
     // alert(JSON.stringify(this.state.prevScreenItemId));
     const itemId = this.props.navigation.state.params.itemId;
-    alert(JSON.stringify(itemId))
-    
+    //alert(JSON.stringify(itemId));
 
     if (this.props.isFetching) {
       return (
