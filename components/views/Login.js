@@ -65,9 +65,7 @@ export class Login extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate("HomeScreen"), {
-        itemId: 86
-      })
+      .then(() => this.props.navigation.navigate("HomeScreen"))
       .catch(error => alert(error));
 
     // ToastAndroid.show('Sign In Successfull', ToastAndroid.SHORT);
@@ -80,12 +78,12 @@ export class Login extends React.Component {
   //     setTimeout(
   //       () => { resolve('result') },
   //       2500
-  //     )
+  //     ) 
   //   );
   // }
 
   checkIfLogged = () => {
-    if (this.props.token === 1) this.props.navigation.navigate("HomeScreen");
+    if (this.props.token === 1) this.props.navigation.navigate("HomeScreen",{itemId:86});
     else alert("Email or Password was Incorrect");
   };
 

@@ -23,6 +23,7 @@ import { AppLoading } from "expo";
 import { ScrollView } from "react-native-gesture-handler";
 import bgImage from "../../tablefinal.jpg";
 import firebase from "../../configs/firebase";
+// const { navigation } = this.props;
 
 export class Home extends React.Component {
   constructor(props) {
@@ -32,7 +33,8 @@ export class Home extends React.Component {
       item: {},
       chosenDate: "",
       hotelSelected: "",
-      emailId: ""
+      emailId: "",
+      // itemId  : this.props.navigation.state.params.itemId,
     };
   }
 
@@ -65,7 +67,16 @@ export class Home extends React.Component {
       });
   };
   render() {
+    // const { navigation } = this.props;
+    // const itemId = navigation.getParam('itemId');
+    // alert(navigation.getParam('itemId'))
+    // alert(JSON.stringify(itemId));
+    
     const { data } = this.props;
+    // alert(JSON.stringify(this.state.prevScreenItemId));
+    const itemId = this.props.navigation.state.params.itemId;
+    alert(JSON.stringify(itemId))
+    
 
     if (this.props.isFetching) {
       return (

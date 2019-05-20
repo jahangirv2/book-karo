@@ -7,10 +7,10 @@ import Login from '../containers/Auth';
 import Home from '../containers/Home';
 
 const AppNavigator = createStackNavigator({
-
+  LoginScreen: Login,
   
   HomeScreen: Home,
-  LoginScreen: Login,
+  
   Signup: Signup,
 });
 
