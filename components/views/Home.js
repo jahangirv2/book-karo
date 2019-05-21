@@ -33,19 +33,56 @@ export class Home extends React.Component {
       item: {},
       chosenDate: "",
       hotelSelected: "",
-      emailId: ""
+      emailId: this.props.navigation.state.params.itemId,
+      booked: [],
       // itemId  : this.props.navigation.state.params.itemId,
     };
   }
 
   componentDidMount() {
+    var that = this;
+    // alert(JSON.stringify(this.state.emailId))
+    // firebase.database().ref('booked/').orderByChild("email").equalTo(this.state.emailId)
+    // .on('value',function (snapshot){
+    //   // alert(JSON.stringify(snapshot.val()))
+      
+    // })
+// firebase.database().ref("booked/").orderByChild("email")
+//         .equalTo(this.state.emailId)
+//         .on('value', function(snapshot)  {
+          
+//               alert(JSON.stringify(snapshot.val()))
+              
+//     });
+    firebase.database().ref("booked/").orderByChild("email").equalTo(this.state.emailId)
+    .once("value").then(function(snapshot) {
+      snapshot.forEach(function (childSnapshot){
+        // alert(JSON.stringify(childSnapshot.val().hotelSelected))
+        that.setState({booked: [...that.state.booked,childSnapshot.val().hotelSelected]})
+        // alert(JSON.stringify(that.state.booked))
+      })
+    })
+    
+// alert(JSON.stringify(this.state.booked))
+    // firebase.database().ref('booked/').once('value', function (snapshot) {
+    //   alert(JSON.stringify(snapshot.val()))
+      
+      // snapshot.val().map(item => {
+      //   if(item.email === this.state.emailId){
+      //     this.setState = {
+      //       booked: item,
+      //     }
+      //   }
+      // })
+      // alert(JSON.stringify(this.state.booked))
+  // });
     this.props.fetchHotels().then(() => this.checkifReceived());
   }
 
   handleOnItemSelect = item => this.setState({ item, showDatePicker: true });
 
   checkifReceived = () => {
-    alert(JSON.stringify(this.props.data));
+    // alert(JSON.stringify(this.props.data));
   };
 
   static navigationOptions = {
@@ -53,6 +90,7 @@ export class Home extends React.Component {
   };
 
   setDate = chosenDate => {
+    var that = this;
     this.setState({ chosenDate, showDatePicker: false });
     const { navigation } = this.props;
     const itemId = navigation.getParam("itemId");
@@ -65,9 +103,25 @@ export class Home extends React.Component {
         date: chosenDate.toString(),
         hotelSelected: this.state.item,
         email: itemId
+      }).then(()=>{
+        firebase.database().ref("booked/").orderByChild("email").equalTo(this.state.emailId)
+    .once("value").then(function(snapshot) {
+      snapshot.forEach(function (childSnapshot){
+        // alert(JSON.stringify(childSnapshot.val().hotelSelected))
+        that.setState({
+          booked: [...that.state.booked,childSnapshot.val().hotelSelected]
+        }
+          )
+        // alert(JSON.stringify(that.state.booked))
+      })
+    })
       });
+      
+    
+
   };
   render() {
+    // alert(JSON.stringify(this.state.booked))
     // const { navigation } = this.props;
     // const itemId = navigation.getParam('itemId');
     // alert(navigation.getParam('itemId'))
@@ -76,7 +130,7 @@ export class Home extends React.Component {
     const { data } = this.props;
     // alert(JSON.stringify(this.state.prevScreenItemId));
     const itemId = this.props.navigation.state.params.itemId;
-    //alert(JSON.stringify(itemId));
+    // alert(JSON.stringify(itemId));
 
     if (this.props.isFetching) {
       return (
@@ -203,6 +257,14 @@ export class Home extends React.Component {
                       </CardItem>
                     </Card>
                   ))}
+                  <Button  onPress={() => this.props.navigation.navigate("BookedScreen",{
+                    bookedHotels: this.state.booked
+
+                  })} style= {{alignSelf:"center"}}>
+                    <Text>
+                      Show Bookings!
+                    </Text>
+                  </Button>
                 </Content>
               </ScrollView>
             </>

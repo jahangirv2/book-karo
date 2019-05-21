@@ -6,12 +6,14 @@ import Login from '../containers/Auth';
 // import { Home } from "./views/Home";
 import Home from '../containers/Home';
 
+import  {BookedHotels}  from './views/BookedHotels';
+
 const AppNavigator = createStackNavigator({
   LoginScreen: Login,
-  
   HomeScreen: Home,
-  
   Signup: Signup,
+  BookedScreen: BookedHotels
+  
 });
 
 export default createAppContainer(AppNavigator);
