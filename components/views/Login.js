@@ -78,12 +78,15 @@ export class Login extends React.Component {
   //     setTimeout(
   //       () => { resolve('result') },
   //       2500
-  //     ) 
+  //     )
   //   );
   // }
 
   checkIfLogged = () => {
-    if (this.props.token === 1) this.props.navigation.navigate("HomeScreen",{itemId:86});
+    if (this.props.token === 1)
+      this.props.navigation.navigate("HomeScreen", {
+        itemId: this.state.email
+      });
     else alert("Email or Password was Incorrect");
   };
 
