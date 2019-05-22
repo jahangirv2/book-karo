@@ -257,10 +257,10 @@ export class Home extends React.Component {
                       </CardItem>
                     </Card>
                   ))}
-                  <Button  onPress={() => this.props.navigation.navigate("BookedScreen",{
+                  <Button rounded onPress={() => this.props.navigation.navigate("BookedScreen",{
                     bookedHotels: this.state.booked
 
-                  })} style= {{alignSelf:"center"}}>
+                  })} style= {{alignSelf:"center",backgroundColor: "#dd3737",marginTop:5}}>
                     <Text>
                       Show Bookings!
                     </Text>
