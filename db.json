@@ -17,6 +17,13 @@
       "title": "Marriot Hotel Karachi",
       "address": "9 Abdullah Haroon Rd, Civil Lines Karachi, Karachi City, Sindh 10444",
       "price": 17400
+    },
+    {
+      "id": 4,
+      "title": "XYZ Hotel Karachi",
+      "address": "AAXYS Karachi City, Sindh 10444",
+      "price": 10000
+      
     }
   ],
  
